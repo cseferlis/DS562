@@ -48,7 +48,7 @@
 
 3. **Connect Power BI to Synapse**:
 - In Power BI Desktop, click on "Home" -> "Get Data" -> "Azure" -> "Azure Synapse Analytics SQL." You can also use "Synapse SQL workspace (beta)" if the previous method doesn't work.
-- Enter the server name and database name. (e.g. *ds598synapse.sql.azuresynapse.net*)
+- Enter the server name and database name. (e.g. *ds562synapse.sql.azuresynapse.net*)
 - Select ‘Import.’
 - Choose the **authentication method** and sign in with your Azure credentials.
 - Select the tables or views containing the transformed data and load them into Power BI.

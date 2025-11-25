@@ -130,8 +130,8 @@ Dedicated SQL pools also use **Hadoop External Tables** as opposed to **Native E
     
     https://learn.microsoft.com/en-us/azure/synapse-analytics/sql/create-use-external-tables
     - In Synapse Studio, open a new SQL script
-    - Connect to your dedicated SQL Pool (e.g. “ds598sqlpool”)
-    - Use your created database (e.g. “ds598sqlpool”)
+    - Connect to your dedicated SQL Pool (e.g. “ds562sqlpool”)
+    - Use your created database (e.g. “ds562sqlpool”)
     - Create **external tables** to read data from the gold layer in ADLS.
 
     >💡**About NVARCHAR…**

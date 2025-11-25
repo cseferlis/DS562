@@ -10,7 +10,7 @@ This optional assignment is designed to help you get familiar with the Azure pla
 
 ### **Instructions:**
 
-### **DS598 - Key Insights from Azure Fundamentals (AZ-900)**
+### **DS562 - Key Insights from Azure Fundamentals (AZ-900)**
 
 1. **Learn About Cloud Computing**
     - **Video Introduction**: Gain a basic understanding of cloud computing.
@@ -70,7 +70,7 @@ This optional assignment is designed to help you get familiar with the Azure pla
     - **Azure Monitor**: Overview of Azure's monitoring tools.
         - [Read More](https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/4-describe-azure-monitor)
 
-### **DS598 - Key Insights from Azure Data Fundamentals (DP-900)**
+### **DS562 - Key Insights from Azure Data Fundamentals (DP-900)**
 
 1. **No Sandbox Environment Available**
     - You can start your student free trial now, but remember not to overuse resources. Alternatively, review the images in the exercises.
@@ -114,7 +114,7 @@ This optional assignment is designed to help you get familiar with the Azure pla
     - **PowerBI Exercise**: Practice with PowerBI.
         - [Start Exercise](https://microsoftlearning.github.io/DP-900T00A-Azure-Data-Fundamentals/Instructions/Labs/dp900-pbi-06-lab.html)
 
-### **DS598 - Additional Knowledge from General Azure Training**
+### **DS562 - Additional Knowledge from General Azure Training**
 
 1. **Azure Data Factory**
     - **Introduction to ADF**: Understand what Azure Data Factory is.

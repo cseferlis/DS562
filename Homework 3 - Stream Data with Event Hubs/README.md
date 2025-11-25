@@ -29,7 +29,7 @@ Event Hubs and Apache Kafka are extremely interchangeable (since Event Hubs was 
 1. **Create an Event Hubs Namespace**:
     - **Subscription**: Select your subscription.
     - **Resource Group**: Select the resource group created in HW0.
-    - **Namespace Name**: Enter a unique name for your Event Hubs namespace (e.g., `ds598(name)namespace`).
+    - **Namespace Name**: Enter a unique name for your Event Hubs namespace (e.g., `ds562(name)namespace`).
     - **Location**: Choose the same region as your resource group.
     - **Pricing Tier**: Select the appropriate pricing tier (Basic).
 2. **Create an Event Hub Instance**:
