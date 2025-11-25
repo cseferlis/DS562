@@ -1,4 +1,4 @@
-# HW4: Event Hubs and Azure Functions
+# HW3: Event Hubs and Azure Functions
 
 - powerbi from your subscription
 - 
