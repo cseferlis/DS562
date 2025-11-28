@@ -2,7 +2,7 @@
 
 ## Part 1: Azure Account Setup
 **Objective:**
-Set up an Azure account and the foundational resources necessary for the subsequent homework assignments. This involves creating a Resource Group, Storage Account, Blob Storage container, Data Factory, and creating an OpenWeather account for an API key.
+Set up an Azure account and the foundational resources necessary for the subsequent homework assignments. This involves creating a Resource Group, Storage Account, Blob Storage container, Azure Data Factory, and creating an OpenWeather account for an API key.
 **Deliverables:**
 - Air Pollution Data containing past year's of data
 - Medallion Architecture setup for Blob Storage Directory (Bronze, Silver, Gold)
