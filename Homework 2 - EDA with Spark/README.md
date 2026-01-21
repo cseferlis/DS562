@@ -22,7 +22,7 @@ After completing this assignment, you should be able to:
 
 ---
 
-## Part 3: Historical Weather Ingestion Using Azure Data Factory
+## Part 1: Historical Weather Ingestion Using Azure Data Factory
 
 ### Objective
 
@@ -92,7 +92,6 @@ If your pipeline runs successfully but produces only **one file**, your loop is 
 Before running the full pipeline:
 
 - Temporarily reduce the number of iterations (for example, 2–3 windows)
-- Run the pipeline in **Debug** mode
 - Confirm that:
   - The loop executes multiple times
   - Multiple output files are created
@@ -123,9 +122,9 @@ Your historical ingestion is complete when:
 
 ---
 
-## Part 4: Exploratory Data Analysis Using Spark
+## Part 2: Exploratory Data Analysis Using Spark
 
-## Part 4: Azure Synapse and Spark Setup
+### Azure Synapse and Spark Setup
 
 ### Objective
 
@@ -160,7 +159,7 @@ You will use this workspace for **all Spark work** in this homework.
 2. Navigate to **Manage → Apache Spark pools**
 3. Create a new Spark pool with:
    - **Small node size**
-   - **Auto-scale enabled**
+   - **Auto-scale disabled**
    - **Auto-pause enabled**
 
 This configuration minimizes cost while still supporting exploratory analysis.
@@ -178,7 +177,7 @@ This notebook will contain **all analysis for Homework 2**.
 
 ---
 
-## Part 5: Exploratory Data Analysis Using Spark
+## Part 3: Exploratory Data Analysis Using Spark
 
 ### Objective
 
@@ -205,6 +204,17 @@ At a minimum, demonstrate that:
 - The record counts are reasonable
 - You are reading from the correct storage location
 
+### Loading Data from Azure Data Lake into Spark
+
+Helpful when:
+- You’re unsure how Spark reads from ADLS Gen2
+- You want to confirm correct path syntax
+
+- Read data from Azure Data Lake Gen2 using Spark  
+  https://learn.microsoft.com/azure/synapse-analytics/spark/synapse-spark-read-write-data
+
+- Azure storage URI formats (`abfss://`)  
+  https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction-abfs-uri
 ---
 
 ### Step 2: Inspect Schema and Structure
@@ -220,6 +230,18 @@ For each dataset:
 
 You are not expected to flatten the entire schema. Focus only on fields relevant to analysis.
 
+### Inspecting Schemas and Nested JSON
+
+Helpful when:
+- Your schema looks deeply nested
+- You’re unsure how to access nested fields
+
+- Working with nested JSON in Spark  
+  https://spark.apache.org/docs/latest/sql-programming-guide.html#json-datasets
+
+- Understanding Spark DataFrame schemas  
+  https://spark.apache.org/docs/latest/sql-programming-guide.html#schema-inference-and-data-types
+
 ---
 
 ### Step 3: Prepare Data for Analysis
@@ -233,6 +255,18 @@ To make the data usable for EDA:
 Document:
 - Which fields you selected
 - Why those fields are useful
+
+### Flattening Data and Handling Arrays
+
+Helpful when:
+- Fields you want are inside arrays or structs
+- You need one row per timestamp or measurement
+
+- Using `select`, dot notation, and `explode()`  
+  https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.explode.html
+
+- Spark SQL functions reference  
+  https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/functions.html
 
 ---
 
@@ -249,6 +283,29 @@ If timestamps do not match exactly:
 
 The correctness of your reasoning matters more than the specific join technique.
 
+### Working with Time and Timestamps
+
+Helpful when:
+- Your timestamps don’t align between datasets
+- You need to bucket or round time values
+
+- Spark date and timestamp functions  
+  https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/functions.html#date-and-time-functions
+
+- Time-based aggregation and grouping  
+  https://spark.apache.org/docs/latest/sql-ref-functions-builtin.html#date-functions
+
+#### Joining DataFrames
+
+Helpful when:
+- Your join returns fewer rows than expected
+- You’re unsure which join strategy to use
+
+- Spark DataFrame joins  
+  https://spark.apache.org/docs/latest/sql-programming-guide.html#joins
+
+- Understanding join types (inner, left, etc.)  
+  https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select-join.html
 ---
 
 ### Step 5: Required EDA Tasks
@@ -266,6 +323,27 @@ Your Spark notebook must include **all** of the following:
 
 You may sample data for plotting if needed.
 
+### Missing Values and Data Quality Checks
+
+Helpful when:
+- You need to identify nulls or incomplete records
+- You want to reason about data quality
+
+- Handling missing data in Spark  
+  https://spark.apache.org/docs/latest/sql-programming-guide.html#handling-missing-data
+
+### Visualization in Spark Notebooks
+
+Helpful when:
+- You’re unsure how to visualize Spark data
+- You need to sample before plotting
+
+- Converting Spark DataFrames to Pandas  
+  https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.toPandas.html
+
+- Best practices for plotting large datasets  
+  https://spark.apache.org/docs/latest/sql-programming-guide.html#dataframe-operations
+
 ---
 
 ### Step 6: Interpretation and Insight
@@ -278,6 +356,26 @@ For each major analysis or visualization:
 
 Focus on **clear reasoning**, not volume or complexity.
 
+### Correlation and Basic Statistical Analysis
+
+Helpful when:
+- You need to compute correlations
+- You’re unsure what Spark supports natively
+
+- Correlation in Spark DataFrames  
+  https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrameStatFunctions.corr.html
+
+- Spark statistical functions overview  
+  https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql.html#statistical-functions
+
+### Important Guidance
+
+- These links are **references**, not recipes.
+- You are graded on **reasoning and interpretation**, not perfect syntax.
+- If you copy code blindly without understanding it, it will show in your analysis.
+
+When in doubt, ask yourself:
+> “What question am I trying to answer about the data?”
 ---
 
 ## Deliverables (Homework 2)
