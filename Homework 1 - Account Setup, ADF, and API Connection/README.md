@@ -1,4 +1,4 @@
-# Homework 1: End-to-End Data Ingestion and Exploratory Analysis Using Azure
+# Homework 1: End-to-End Data Ingestion
 
 ## Overview
 
