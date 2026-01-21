@@ -122,8 +122,7 @@ Your historical ingestion is complete when:
 
 ---
 
-## Part 2: Exploratory Data Analysis Using Spark
-
+## Part 2: Spark Environment Setup within Azure Synapse
 ### Azure Synapse and Spark Setup
 
 ### Objective
@@ -297,7 +296,9 @@ Helpful when:
 - Time-based aggregation and grouping  
   https://spark.apache.org/docs/latest/sql-ref-functions-builtin.html#date-functions
 
-#### Joining DataFrames
+### Joining DataFrames
+
+There is no single ‘correct’ join strategy here; the goal is to demonstrate a reasonable approach and explain its tradeoffs.
 
 Helpful when:
 - Your join returns fewer rows than expected
@@ -322,6 +323,7 @@ Your Spark notebook must include **all** of the following:
    - Time series plots
 4. **Correlation analysis** across weather and pollution variables
 5. Identification of **at least two insights**, supported by visual evidence
+6. Visualizations may be created using Spark-native tools or by converting sampled data to Pandas.
 
 You may sample data for plotting if needed.
 
