@@ -130,7 +130,9 @@ Your historical ingestion is complete when:
 
 In this section, you will configure **Apache Spark** using **Azure Synapse Analytics** and prepare the environment for exploratory data analysis.
 
-You are not expected to be an expert in Spark yet. The goal is to:
+You are not expected to be an expert in Spark, but should have some experience, else this portion will be challenging. Make sure to rely on the helpful links provided as well as the troubleshooting file for common issues. 
+
+The goal is to:
 - Understand how Spark fits into a modern data platform
 - Learn how to load and explore data stored in a data lake
 - Use distributed compute to explore semi-structured datasets
