@@ -119,12 +119,12 @@ https://learn.microsoft.com/azure/storage/blobs/storage-blob-storage-browser
 
 Azure Data Factory (ADF) is used to **orchestrate and automate data movement**.
 
-1. Search for **Azure Data Factory**
+1. Search for **Data Factory**
 2. Click **Create**
 3. Select:
 - Your resource group
 - Region: Select the region you selected for your Resource Group
-4. Click **Review + Create**
+1. Click **Review + Create**
 
 **Help**
 - Azure Data Factory introduction:  
@@ -137,8 +137,9 @@ https://learn.microsoft.com/azure/data-factory/introduction
 1. Open your **Resource Group**
 2. Click **Access control (IAM)**
 3. Click **Add role assignment**
-4. Role: **Contributor**
-5. Assign to instructor email(s)
+4. Click **Privileged Administrator Roles**
+5. Role: **Contributor**
+6. Assign to instructor email(s)
    - seferlis@bu.edu
    - z2004@bu.edu
    - nc0926@bu.edu
