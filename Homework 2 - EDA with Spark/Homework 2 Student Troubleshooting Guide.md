@@ -91,25 +91,89 @@ https://learn.microsoft.com/azure/data-factory/parameters
 
 ---
 
-## Spark & Notebook Issues
+### Spark & Notebook Issues (Common Problems + Quick Fixes)
 
-### Cannot Read ADLS Path
-Use:
-abfss://container@storageaccount.dfs.core.windows.net/path/
+This section covers the most common problems students run into once they start working in Synapse/Spark.
 
-Help:
+---
+
+#### 1) “My ABFSS path doesn’t work” (or “invalid authority”)
+**What it usually means**
+- The `abfss://` path is formatted incorrectly (container vs folder confusion), or
+- The storage account name/container name is wrong.
+
+**What to do**
+- Confirm the pattern matches:
+abfss://<container>@<storage_account>.dfs.core.windows.net/<folder_path>/
+
+Example (your names will differ):
+abfss://bronze@mydatalake.dfs.core.windows.net/bronze/air_pollution/
+
+📘 Help: Read/write ADLS Gen2 in Synapse Spark  
 https://learn.microsoft.com/azure/synapse-analytics/spark/synapse-spark-read-write-data
 
 ---
 
-### Only One Row Loaded
-Cause:
-- explode() not applied
+#### 2) “Spark loads the weather JSON but I only see ONE row”
+**What it usually means**
+- The hourly records are stored inside an array (commonly `list`), and you haven’t exploded it yet.
 
-Help:
+**What to do**
+- Inspect the schema (`printSchema()`) and look for an array field like `list`.
+- Use `explode()` to convert array elements into rows.
+
+📘 Help: explode()  
 https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.explode.html
 
 ---
 
-### Pandas Memory Errors
-Always sample before calling toPandas().
+#### 3) “My join returns 0 rows”
+**What it usually means**
+- Your timestamps aren’t aligned (seconds-level mismatch).
+- One dataset is hourly and the other is slightly offset.
+
+**What to do**
+- Create an hourly join key by truncating timestamps to the hour in both datasets.
+- Join on the truncated hour key (not raw timestamps).
+
+📘 Help: Spark date/time functions  
+https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/functions.html
+
+---
+
+#### 4) “toPandas() crashes or runs out of memory”
+**What it usually means**
+- You are converting too much Spark data into pandas.
+
+**What to do**
+- Always sample *before* calling `toPandas()`.
+- Only bring the columns you need for plotting.
+
+Tip:
+- If you’re unsure, start with a very small sample and increase later.
+
+---
+
+#### 5) “My plots look weird / time series is scrambled”
+**What it usually means**
+- Your data isn’t sorted by timestamp after converting to pandas.
+
+**What to do**
+- After converting to pandas, sort by timestamp before plotting.
+
+---
+
+### Notebook Structure Tip (How many cells should I use?)
+Use **separate cells for separate steps** so you can debug easily.
+
+Recommended pattern:
+1. Imports + paths
+2. Load raw data
+3. Inspect schema
+4. Flatten air
+5. Flatten weather
+6. Join + validation
+7. EDA stats
+8. Plotting (one plot per cell)
+
+This makes it much easier to isolate and fix issues.
