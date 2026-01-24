@@ -8,13 +8,23 @@ This guide highlights common issues students encounter while completing Homework
 ## Azure Data Factory (ADF)
 
 ### Pipeline Only Produces One File
-Cause:
-- Copy Activity placed outside the ForEach loop
 
-Fix:
-- Ensure the Copy Activity is inside the ForEach
+If your pipeline runs successfully but you only see one file in your output folder, check the following:
 
-Help:
+1. **Copy Activity placement**
+   - Make sure the Copy activity is *inside* the ForEach loop, not after it.
+
+2. **Loop configuration**
+   - Confirm the ForEach `Items` expression produces multiple values (for example, a range of numbers).
+
+3. **File naming**
+   - Ensure the sink file name is dynamic so each loop iteration writes a different file.
+   - If every iteration writes to the same file name, earlier files will be overwritten.
+
+4. **Verify results**
+   - After the pipeline completes, refresh the ADLS folder and confirm multiple files exist.
+
+📘 Helpful reference:  
 https://learn.microsoft.com/azure/data-factory/control-flow-for-each-activity
 
 ---
