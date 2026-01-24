@@ -8,7 +8,7 @@ In Homework 2, you will extend the Azure data platform you built in Homework 1. 
 2. **Explore and join** your **historical weather** and **air pollution** datasets using **Apache Spark** in **Azure Synapse**.
 3. Produce a short EDA summary describing what you found, what is missing or suspicious, and what you would do next.
 
-This assignment is designed for a Master’s-level Big Data Engineering course in a Data Science curriculum. The analytics are not mathematically complex, but the **engineering thinking** is advanced: batching, schema inspection, semi-structured data shaping, time alignment, and validation.
+In this assignment, analytics are not mathematically complex, but the **engineering thinking** is advanced: batching, schema inspection, semi-structured data shaping, time alignment, and validation.
 
 > **How to succeed**
 > - Don’t aim for speed. Aim for **repeatability** and **evidence**.
@@ -87,17 +87,11 @@ Use names that make debugging easier:
 
 ### HTTP Dataset Setup (What to Configure)
 
-You can structure your HTTP request in either of these two ways:
+We have change the base URL of our api to fetch the historical data rather than current aqi. As you create your HTTP connector, keep the following in mind.
 
-**Option A (recommended):**
-- Base URL in the linked service: `https://api.openweathermap.org`
+- Base URL in the linked service: `https://history.openweathermap.org`
 - Relative URL in dataset: `/data/2.5/history/city`
 - Query parameters in dataset **or** in the Copy activity “Additional headers / query” (depending on your UI)
-
-**Option B:**
-- Put the full URL path in the dataset and parameterize query string values
-
-> The most common failure mode here is accidentally pointing to a different host (or outdated hostname) which causes DNS errors.
 
 **OpenWeather documentation (reference):**
 - OpenWeather APIs: https://openweathermap.org/api
@@ -135,6 +129,7 @@ Use these as checkpoints rather than a recipe:
 - Make sure each iteration writes to a unique filename (include the window index or start timestamp).
 - Confirm the API response JSON contains an hourly `list` array (or equivalent) before you scale to ~1 year.
 - If your pipeline “succeeds” but produces 1 file, your loop likely isn’t varying the request or sink path.
+- Your files must have unique names, otherwise they will be over-written. So, part of the looping exercise needs to yield 52 unique names for 52 weeks of data. Think of expressions you could use to create this scenario.
 
 ### Debugging Guidance (Strongly Recommended)
 
@@ -198,8 +193,8 @@ Synapse overview:
 #### Step 2: Create a Spark Pool
 
 Use a small pool with:
-- Auto-scale enabled
-- Auto-pause enabled
+- Auto-scale disabled
+- Auto-pause after 10 minutes enabled
 
 Spark pool configurations:
 - https://learn.microsoft.com/azure/synapse-analytics/spark/apache-spark-pool-configurations
@@ -365,12 +360,12 @@ Provide a short written section (Markdown in the notebook) answering:
 
 Submit the following:
 
-1. **ADF screenshots**
-   - Pipeline canvas showing ForEach + Copy activity
-   - One successful run (monitor view) showing multiple iterations
-   - ADLS folder showing multiple output files in `/bronze/historical_weather/`
+1. **ADF configurations to be reviewed**
+   - Pipeline canvas including ForEach + Copy activity
+   - One successful run showing multiple iterations
+   - ADLS folder containing multiple output files in `/bronze/historical_weather/`
 
-2. **Spark notebook**
+2. **Spark notebook submission**
    - Executed notebook (ipynb export or Synapse notebook export)
    - Must include Markdown annotations explaining each step
 
@@ -394,20 +389,4 @@ This is a Master’s-level course. We will grade based on:
 
 You will not be penalized for small syntax mistakes if your approach is sound and you can explain what you intended.
 
----
-
-## Where to Insert Images (Instructor Notes)
-
-Insert images at the highest-friction points. Use placeholders like:  
-`![ALT TEXT](images/XYZ.png)`
-
-**Recommended image slots:**
-
-1. After **Pipeline Structure**: screenshot of ADF pipeline layout (no expressions)
-2. After **HTTP Dataset Setup**: screenshot showing dataset parameter placeholders
-3. After **Looping + Time Window Logic**: a simple timeline diagram (iteration → window)
-4. After **Validation Checklist**: screenshot of ADLS folder showing multiple files
-5. Part 3 Step 1: screenshot showing correct ABFSS path pattern
-6. Part 3 Step 3: screenshot of `printSchema()` highlighting `list` nesting
-7. Part 3 Step 5 (Visualizations): one example plot (generic)
 
