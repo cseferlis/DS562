@@ -43,13 +43,50 @@ https://openweathermap.org/api/history-weather-api
 
 ---
 
-### Dataset vs Pipeline Parameters
-Rule:
-- Dataset parameters = placeholders
-- Pipeline parameters = values
-- Expressions = logic
+### Confusion About Parameters (Dataset vs Pipeline vs Activity)
 
-Help:
+If you’re stuck on **where parameters belong** in Azure Data Factory, use this simple rule:
+
+#### 1) Dataset parameters = placeholders
+Use dataset parameters to define **what values will be supplied later**, not the values themselves.
+
+Example: the HTTP dataset might define placeholders like:
+- `lat`
+- `lon`
+- `start`
+- `end`
+- `apikey`
+
+You are not “setting” the real values here. You are just creating slots for them.
+
+---
+
+#### 2) Pipeline parameters = constant values for the whole run
+Use pipeline parameters for values that stay the same throughout the pipeline execution, like:
+- latitude
+- longitude
+- API key
+- window size (days)
+
+These are usually entered once when you run the pipeline (or set as defaults).
+
+---
+
+#### 3) Activity expressions = dynamic values that change each iteration
+Use activity-level dynamic content (inside the Copy activity) for values that change per loop iteration, such as:
+- calculated `start` timestamp
+- calculated `end` timestamp
+- dynamic file name
+
+---
+
+### Quick sanity check
+If a value:
+- **never changes** during the run → pipeline parameter  
+- **changes every loop** → activity expression  
+- is just a **slot to be filled** → dataset parameter  
+
+📘 Helpful reference (ADF parameters):  
 https://learn.microsoft.com/azure/data-factory/parameters
 
 ---
