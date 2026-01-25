@@ -45,12 +45,18 @@ Use ADF to call the OpenWeather **Historical Weather (City)** endpoint repeatedl
 
 Your solution must meet **all** constraints below:
 
-- **Must use a ForEach loop** in ADF.
-- Each loop iteration must retrieve **~1 window of data** (for example, 7 days).
-- The loop must run **many times** (enough iterations to cover ~1 year).
-- Each iteration must write **a separate JSON file** to ADLS.
-- Your source must be an **HTTP dataset** (or HTTP linked service + dataset).
-- Your pipeline must be **parameterized** (no hard-coded latitude/longitude/key in the dataset body).
+- You **must use a ForEach loop** in Azure Data Factory.
+- Each loop iteration must retrieve **1-week** of historical data.
+- The loop must run **many iterations** to cover approximately **one year of data (01/01/2025 to 01/01/2026)**.
+- Each iteration must write **a separate JSON file** to ADLS (no overwriting).
+- The data source must be an **HTTP dataset** (or HTTP linked service + dataset).
+- The pipeline must be **parameterized** (no hard-coded latitude, longitude, or API key).
+
+**Why the 1-week window?**  
+The [OpenWeather Historical Weather API](https://openweathermap.org/history) restricts how much data can be fetched per request. 
+This constraint is deliberate and forces you to implement a **looped, batched ingestion pipeline**, which is the core engineering objective of this assignment.
+
+
 
 ### Pipeline Structure (High-Level Guidance)
 
