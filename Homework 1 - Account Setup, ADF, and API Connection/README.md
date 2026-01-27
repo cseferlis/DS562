@@ -235,7 +235,7 @@ You should receive a `200 OK` response with JSON output.
 ### Step 2: Air Pollution Pipeline (Single API Call Pattern)
 
 #### Goal
-Ingest approximately **one year of hourly air pollution data** for Boston.
+Ingest approximately **one year of hourly air pollution data (01/01/2025 to 01/01/2026)** for Boston.
 
 #### Required Design
 1. Open **Azure Data Factory Studio**
