@@ -237,6 +237,8 @@ You should receive a `200 OK` response with JSON output.
 #### Goal
 Ingest approximately **one year of hourly air pollution data (01/01/2025 to 01/01/2026)** for Boston.
 
+**Note:** ***DO NOT USE THE "DEBUG" OPTION. THIS WILL DEPLETE YOUR RESOURCES QUICKLY***
+
 #### Required Design
 1. Open **Azure Data Factory Studio**
 2. Create a new **Pipeline**
