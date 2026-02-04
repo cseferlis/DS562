@@ -220,7 +220,7 @@ https://learning.postman.com/docs/sending-requests/variables/
 ### Step 4: Test a Simple Current Weather Call
 
 **Request**
-- GET `{{base_url}}/data/2.5/weather`
+- GET `{{base_url}}/data/2.5/air_pollution/history`
 
 **Query Params**
 - `lat` = `{{lat}}`
