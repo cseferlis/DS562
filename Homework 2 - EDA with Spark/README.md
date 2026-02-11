@@ -372,7 +372,7 @@ Submit the following:
    - ADLS folder containing multiple output files in `/bronze/historical_weather/`
 
 2. **Spark notebook submission**
-   - Executed notebook (ipynb export or Synapse notebook export)
+   - Executed notebook (html export)
    - Must include Markdown annotations explaining each step
 
 3. **EDA summary PDF (1–2 pages)**
