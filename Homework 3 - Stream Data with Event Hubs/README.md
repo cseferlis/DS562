@@ -268,7 +268,7 @@ hw3-weather-function/
 └── README.md                   # Setup instructions
 ```
 
-**Download link:** `[INSTRUCTOR: Insert repository URL or provide ZIP file]`
+**Download link:** /hw3-weather-function-template.tar.gz
 
 ---
 
