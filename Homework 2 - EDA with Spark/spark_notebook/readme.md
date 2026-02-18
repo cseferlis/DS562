@@ -41,8 +41,9 @@ You will see the notebooks interface.
 
 ## 4. Loading the data
 
-First, download the folders you had in bronze.
-put them into `data`
+First, download the folders you had in `bronze`.
+
+Put them into `data/` folder.
 
 
 ## 5. Starter code location
