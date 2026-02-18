@@ -1,13 +1,15 @@
 services:
   spark-notebook:
-    build: .
+    image: jupyter/all-spark-notebook:latest
     container_name: spark-notebook
     ports:
       - "8888:8888"
       - "4040:4040"
     volumes:
-      - ./notebooks:/home/iceberg/notebooks
-      - ./data:/home/iceberg/data
-    environment:
-      - AZURE_STORAGE_ACCOUNT=<your_account>
-      - AZURE_STORAGE_KEY=<your_key>
+      - ./notebooks:/home/jovyan/work
+      - ./data:/home/jovyan/data
+    command: >
+      start-notebook.sh
+      --NotebookApp.token=''
+      --NotebookApp.password=''
+      --NotebookApp.disable_check_xsrf=True
