@@ -20,9 +20,11 @@ After installing:
 ---
 ## 2. Start the environment
 
+First, Clone the repo. 
 Open a terminal, run:
 
 ```
+git clone https://github.com/cseferlis/DS562.git
 cd DS562/"Homework 2 - EDA with Spark"/spark_notebook
 docker compose up -d
 ```
