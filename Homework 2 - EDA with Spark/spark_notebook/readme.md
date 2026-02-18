@@ -29,6 +29,13 @@ cd DS562
 cd "Homework 2 - EDA with Spark"/spark_notebook
 docker compose up -d
 ```
+
+if you are having trouble on the docker compose part, do this:
+```
+docker compose down -v
+docker compose build --no-cache
+docker compose up -d
+```
 ---
 
 ## 3. Open Jupyter Notebook
@@ -48,6 +55,7 @@ First, download the folders you had in `bronze`.
 
 Put them into `data/` folder.
 
+---
 
 ## 5. Starter code location
 
