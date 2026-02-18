@@ -1,0 +1,13 @@
+services:
+  spark-notebook:
+    build: .
+    container_name: spark-notebook
+    ports:
+      - "8888:8888"
+      - "4040:4040"
+    volumes:
+      - ./notebooks:/home/iceberg/notebooks
+      - ./data:/home/iceberg/data
+    environment:
+      - AZURE_STORAGE_ACCOUNT=<your_account>
+      - AZURE_STORAGE_KEY=<your_key>

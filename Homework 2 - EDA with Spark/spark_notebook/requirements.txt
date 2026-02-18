@@ -1,0 +1,7 @@
+pyspark==3.5.1
+pandas
+matplotlib
+jupyter
+notebook
+ipykernel
+pyarrow
