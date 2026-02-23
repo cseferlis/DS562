@@ -568,6 +568,18 @@ def main(mytimer):
 2. **Start the function locally:**
    - Press `F5` (Start Debugging)
    - Or: Terminal → Run Task → "func: host start"
+   
+3. **Start local Azure Storage (Azurite)**
+   - Azure Functions requires local storage to run triggers.
+
+   Install:
+   ```bash
+   npm install -g azurite
+   ```
+   Start Azurite (keep this terminal running):
+   ```bash
+   azurite
+   ```
 
 3. **Trigger the function manually** (don't wait for the timer):
    - In VS Code: Right-click function in Azure extension → "Execute Function Now..."
