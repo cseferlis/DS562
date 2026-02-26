@@ -620,12 +620,12 @@ def main(mytimer):
 
 #### Create Function App
 
-1. **In VS Code Azure extension**, click "Create Function App in Azure..." (cloud icon)
-2. **Configuration:**
-   - **Name:** `ds562-<yourname>-weather-func` (globally unique)
-   - **Runtime:** Python 3.9 (or your version)
-   - **Region:** Same as Event Hubs namespace
+1. **In the Azure portal**, search for "Function App" click "Create"
+2. **Configuration settings for deployment:**
    - **Hosting plan:** Consumption
+   - **Name:** `ds562-<yourname>-weather-func` (globally unique)
+   - **Runtime:** Python 3.10 (or your version -it is ok to have a version mismatch, just pick something close to what is on your IDE)
+   - **Region:** Same as Event Hubs namespace
    - **Storage account:** Use existing
    - **Application Insights:** No (to save cost)
 
