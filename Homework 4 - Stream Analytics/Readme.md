@@ -325,17 +325,36 @@ Reference:\
 https://learn.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices
 
 ------------------------------------------------------------------------
+## Critical thinking:
+
+## Things to Consider (Production Context)
+
+The system built in this assignment represents a simplified version of a real-time data pipeline.
+
+Consider the following questions as you work through the assignment:
+
+- If this system needed to monitor hundreds of cities instead of one, how would the architecture need to change?
+- What problems could occur if analytics rely on processing time instead of event time?
+- How would changing the window size of your aggregation affect the usefulness of the results?
+- Streaming systems run continuously. What strategies would you use to manage cost in a production environment?
+
+------------------------------------------------------------------------
 
 # Deliverables
 
 Submit screenshots demonstrating:
 
-1.  Event Hub receiving events
-2.  Stream Analytics input configuration
-3.  Query producing results
-4.  Stream Analytics job running
-5.  Power BI dashboard updating
-6.  Resources stopped
+Section                                    Points
+Event Hub restoration                        10
+Stream Analytics input configuration         15
+Query logic (fields extracted)               15
+Windowed aggregation                         10
+Query validation results                     10
+Stream Analytics running verification        10
+Power BI dataset creation                    10
+Dashboard visualizations                     15
+Resource shutdown / cost control              5
+
 
 ------------------------------------------------------------------------
 
