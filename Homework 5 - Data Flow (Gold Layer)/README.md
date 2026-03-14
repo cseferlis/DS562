@@ -115,6 +115,15 @@ https://learn.microsoft.com/en-us/azure/data-factory/monitor-visually
 
 ---
 
+## Production Considerations (Reflection Only)
+These questions are intended to help you think about real-world production environments. They are **not graded deliverables**.
+
+- What types of data quality issues did you encounter while transforming the data?
+- Why is Parquet commonly used for analytics datasets instead of JSON?
+- If this pipeline processed millions of records per hour, what additional design considerations might be necessary?
+
+---
+
 ## Deliverables
 Submit the following:
 
@@ -123,11 +132,12 @@ Submit the following:
 3. Screenshot of successful pipeline runs
 4. Screenshot showing the Silver layer datasets in ADLS
 
----
+## Grading
 
-## Production Considerations (Reflection Only)
-These questions are intended to help you think about real-world production environments. They are **not graded deliverables**.
+Category                      Points    What TAs Will Look For
+Dataflow Architecture         25        Two dataflows created (weather + air pollution) with logical transformations
+Correct Transformations       30        Flatten, derived columns, filtering, and column selection implemented correctly
+Silver Data Output            25        Clean Parquet output written to /silver/weather/ and /silver/air_pollution/
+Data Quality                  10        Invalid records filtered, timestamps converted properly
+Documentation / Evidence      10        Screenshots or evidence of successful pipeline runs and output data
 
-- What types of data quality issues did you encounter while transforming the data?
-- Why is Parquet commonly used for analytics datasets instead of JSON?
-- If this pipeline processed millions of records per hour, what additional design considerations might be necessary?
