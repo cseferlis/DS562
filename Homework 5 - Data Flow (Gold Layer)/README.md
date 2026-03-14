@@ -135,6 +135,7 @@ Submit the following:
 ## Grading
 
 | Category                      |Points   |What TAs Will Look For|
+|:------------------------------|:--------|:---------------------|
 | Dataflow Architecture         |25        |Two dataflows created (weather + air pollution) with logical transformations
 | Correct Transformations       |30        |Flatten, derived columns, filtering, and column selection implemented correctly
 | Silver Data Output            |25        |Clean Parquet output written to /silver/weather/ and /silver/air_pollution/
