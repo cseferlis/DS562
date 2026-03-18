@@ -341,19 +341,20 @@ Consider the following questions as you work through the assignment:
 ------------------------------------------------------------------------
 
 # Deliverables
+- Screenshot showing job running successfully + SQL query visible
+- Screenshot of Power BI dashboard/visualizations 
 
-Submit screenshots demonstrating:
-
-Section                                    Points
-Event Hub restoration                        10
-Stream Analytics input configuration         15
-Query logic (fields extracted)               15
-Windowed aggregation                         10
-Query validation results                     10
-Stream Analytics running verification        10
-Power BI dataset creation                    10
-Dashboard visualizations                     15
-Resource shutdown / cost control              5
+| Section                                   | Points |
+|------------------------------------------|--------|
+| Event Hub restoration                    | 10     |
+| Stream Analytics input configuration     | 15     |
+| Query logic (fields extracted)           | 15     |
+| Windowed aggregation                     | 10     |
+| Query validation results                 | 10     |
+| Stream Analytics running verification    | 10     |
+| Power BI dataset creation                | 10     |
+| Dashboard visualizations                 | 15     |
+| Resource shutdown / cost control         | 5      |
 
 
 ------------------------------------------------------------------------
