@@ -1,110 +1,188 @@
 # Homework 6 – Distributed Data Processing with Spark
 
-## Objective
-The Silver layer contains cleaned data that is suitable for analysis. However, many analytical workloads require **large-scale aggregations and transformations** that benefit from distributed computing.
+## Overview
 
-In this assignment you will use **Apache Spark in Azure Synapse** to process Silver layer data and create **Gold layer analytical datasets**.
+In Homework 5, you transformed raw Bronze JSON into clean Silver Parquet datasets. These datasets are now usable, but still too detailed for efficient analytics.
 
-These datasets will power downstream analytics and visualization workloads.
+In Homework 6, you will use Apache Spark in Azure Synapse to process the Silver datasets and produce Gold layer analytical datasets.
+
+This assignment focuses on:
+- loading structured Parquet data with Spark
+- validating schemas and data quality
+- computing daily aggregations
+- writing curated outputs to the Gold layer
+- managing Spark compute costs responsibly
 
 ---
 
 ## Architecture Context
 
-Bronze Layer (Raw Data)  
-↓  
-Silver Layer (Clean Data)  
-↓  
-Apache Spark Transformations  
-↓  
-Gold Layer (Aggregated Data)
-
-The **Gold layer** contains curated datasets designed specifically for analytics and reporting.
+Silver Layer (Parquet)
+        ↓
+Azure Synapse Spark Notebook
+        ↓
+Aggregations and Transformations
+        ↓
+Gold Layer (Parquet)
 
 ---
 
 ## Tools Used
+
 - Azure Synapse Analytics
 - Apache Spark
 - PySpark DataFrames
 - Azure Data Lake Storage
 
-Spark Documentation:  
-https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-overview
-
 ---
 
 ## Cost Control Guidelines
-Spark clusters consume compute resources while running.
 
-Important practices:
-- Shut down clusters when finished
-- Avoid leaving notebooks running
-- Run only the cells required for testing
-
-Stop clusters in:  
-Synapse Studio → Manage → Apache Spark Pools
+- Use the smallest Spark pool possible
+- Avoid unnecessary reruns
+- Detach notebook when done
+- Ensure Spark pool is stopped after use
 
 ---
 
-## Assignment Tasks
+# Part 1 – Load and Validate Silver Data
 
-### 1. Load Silver Layer Data
-Load the following datasets:
+## Required Inputs
 
-silver/weather  
-silver/air_pollution
+- /silver/weather
+- /silver/air_pollution
 
-Documentation:  
-https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-dataframe
+## Required Steps
+
+1. Load both datasets using Spark
+2. Print schema and preview data
+3. Count total rows
+4. Create a daily date column
+5. Check null values for key fields
 
 ---
 
-### 2. Perform Aggregations
-Create at least **four analytical datasets** using Spark.
+# Part 2 – Create Gold Datasets
 
-Examples include:
-- daily weather summary
-- daily AQI average
-- pollutant averages
-- temperature extremes
+You must create the following datasets:
 
-Use Spark operations such as:
+## 1. Daily Weather Summary
+Includes:
+- date
+- avg temperature
+- avg humidity
+- avg wind speed
+- max temperature
+- min temperature
+- record count
+
+## 2. Daily AQI Summary
+Includes:
+- date
+- avg AQI
+- max AQI
+- min AQI
+- record count
+
+## 3. Daily Pollutant Summary
+Includes averages for:
+- PM2.5
+- PM10
+- O3
+- NO2
+- CO
+- SO2
+
+## 4. Temperature Extremes
+Includes:
+- date
+- max temperature
+- min temperature
+
+---
+
+## Required Spark Operations
+
 - groupBy
-- aggregations
-- joins
-- filtering
-
-Spark SQL Functions:  
-https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/functions.html
+- avg, max, min, count
+- derived date columns
+- optional joins
 
 ---
 
-### 3. Write Results to the Gold Layer
-Save the resulting datasets to:
+# Part 3 – Write Gold Outputs
+
+Write each dataset to:
 
 /gold/
 
-Use:
-Parquet format
+Example structure:
 
-Documentation:  
-https://learn.microsoft.com/en-us/azure/data-factory/format-parquet
+/gold/daily_weather_summary/
+/gold/daily_aqi_summary/
+/gold/daily_pollutant_summary/
+/gold/temperature_extremes/
+
+Format: Parquet
 
 ---
 
-## Deliverables
-Submit:
+# Part 4 – Validate Outputs
+
+1. Read each dataset back into Spark
+2. Print schema
+3. Show sample rows
+4. Confirm data exists in ADLS
+5. Verify values are reasonable
+
+---
+
+# Notebook Structure
+
+1. Imports
+2. Paths
+3. Load data
+4. Validation
+5. Transformations
+6. Write outputs
+7. Validate outputs
+
+---
+
+# Deliverables
 
 1. Exported Synapse notebook (.html or .ipynb)
-2. Screenshot of Gold layer datasets in ADLS
-3. Screenshot showing Spark notebook execution
+2. Screenshot of Gold layer in ADLS
+3. Screenshot of successful notebook execution
 
 ---
 
-## Production Considerations (Reflection Only)
-These questions are intended to help you think about real-world production environments.
+# Grading Breakdown
 
-- Why is distributed computing useful for large-scale data processing?
-- What challenges might arise if datasets grow to billions of records?
-- When would you choose Spark instead of SQL for data transformations?
+| Category | Points |
+|----------|--------|
+| Data loading and validation | 20 |
+| Daily Weather Summary | 15 |
+| Daily AQI Summary | 15 |
+| Daily Pollutant Summary | 15 |
+| Temperature Extremes | 10 |
+| Writing outputs | 10 |
+| Validation | 10 |
+| Notebook organization | 5 |
+| Total | 100 |
+
+---
+
+# Reflection (Not Graded)
+
+- Why is distributed computing useful?
+- When should Spark be used instead of SQL?
+- Why separate Silver and Gold layers?
+
+---
+
+# What Success Looks Like
+
+You should be able to explain:
+
+“I loaded Silver data, validated it, created four daily summaries, and wrote them to the Gold layer for analytics.”
