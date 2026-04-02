@@ -18,11 +18,11 @@ This assignment focuses on:
 ## Architecture Context
 
 Silver Layer (Parquet)
-        ↓
+        ->
 Azure Synapse Spark Notebook
-        ↓
+        ->
 Aggregations and Transformations
-        ↓
+        ->
 Gold Layer (Parquet)
 
 ---
