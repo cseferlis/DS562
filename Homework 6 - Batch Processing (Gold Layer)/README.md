@@ -86,6 +86,7 @@ Includes:
 
 ## 3. Daily Pollutant Summary
 Includes averages for:
+- date
 - PM2.5
 - PM10
 - O3
@@ -93,7 +94,7 @@ Includes averages for:
 - CO
 - SO2
 
-## 4. Temperature Extremes
+## 4. Daily Temperature Extremes
 Includes:
 - date
 - max temperature
