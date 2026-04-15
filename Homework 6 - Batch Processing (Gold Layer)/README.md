@@ -115,14 +115,14 @@ Includes:
 
 Write each dataset to:
 
-/gold/
+- /gold/
 
 Example structure:
 
-/gold/daily_weather_summary/
-/gold/daily_aqi_summary/
-/gold/daily_pollutant_summary/
-/gold/temperature_extremes/
+- /gold/daily_weather_summary/
+- /gold/daily_aqi_summary/
+- /gold/daily_pollutant_summary/
+- /gold/temperature_extremes/
 
 Format: Parquet
 
