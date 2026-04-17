@@ -18,11 +18,11 @@ This assignment focuses on:
 ## Architecture Context
 
 Silver Layer (Parquet)
-        ↓
+        ->
 Azure Synapse Spark Notebook
-        ↓
+        ->
 Aggregations and Transformations
-        ↓
+        ->
 Gold Layer (Parquet)
 
 ---
@@ -86,6 +86,7 @@ Includes:
 
 ## 3. Daily Pollutant Summary
 Includes averages for:
+- date
 - PM2.5
 - PM10
 - O3
@@ -93,7 +94,7 @@ Includes averages for:
 - CO
 - SO2
 
-## 4. Temperature Extremes
+## 4. Daily Temperature Extremes
 Includes:
 - date
 - max temperature
@@ -114,14 +115,14 @@ Includes:
 
 Write each dataset to:
 
-/gold/
+- /gold/
 
 Example structure:
 
-/gold/daily_weather_summary/
-/gold/daily_aqi_summary/
-/gold/daily_pollutant_summary/
-/gold/temperature_extremes/
+- /gold/daily_weather_summary/
+- /gold/daily_aqi_summary/
+- /gold/daily_pollutant_summary/
+- /gold/temperature_extremes/
 
 Format: Parquet
 
